@@ -27,27 +27,32 @@ public class Game {
 
     public void makeGuess(int theGuess){
         this.guess = theGuess;
-
+        countTries();
     }
 
     public boolean equals(){
         boolean equal = this.secret == this.guess;
-        if(this.equals()){
+        if(equal){
             System.out.println("That is the right answer!");
+//            return tries
         }else{
-
+//          conditional
+            if(tries !=0) {
+                bigOrSmall();
+            }
         }
 
         return equal;
     }
     public boolean bigOrSmall(){
+
         boolean tooBig = this.guess > this.secret;
         if(tooBig){
             System.out.println("your guess is too big");
         }else{
             System.out.println("your guess is too small");
         }
-        countTries();
+
         return tooBig;
     }
     public int countTries(){
@@ -62,8 +67,8 @@ public class Game {
 
             guessNum = guess.nextInt();
             makeGuess(guessNum);
-            equals();
-            System.out.println(guessNum);
+//            equals();
+
 
         }
     }
