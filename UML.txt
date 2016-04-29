@@ -1,0 +1,15 @@
+----------------------
+	GAME
+======================
+	GAME	     |
+----------------------
++ int secret	     |
++ int tries	     |
++ int lastGuess	     |
+----------------------
++ makeGues(int guess)|
++ equals()	     |
++ bigOrSmall()	     |
++ countTries()	     |
++ run() 	     |
+====================== 
