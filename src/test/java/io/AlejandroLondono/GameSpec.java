@@ -53,4 +53,14 @@ public class GameSpec {
         int actualValue = game.tries;
         assertEquals("the number of tries should be 1", expectedValue, actualValue);
     }
+
+    @Test
+    public void checkPrevInputsTest() {
+        Game gameI= new Game();
+        gameI.guess= 66;
+        gameI.lastGuess= 66;
+        boolean condition = gameI.checkPrevInput();
+        assertTrue("big or small knows when guess is bigger than secret", condition );
+    }
+
 }

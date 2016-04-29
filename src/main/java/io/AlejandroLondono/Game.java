@@ -8,25 +8,18 @@ import java.util.StringTokenizer;
  * Created by alejandrolondono on 4/28/16.
  */
 public class Game {
-/**
- *
- * guessing game
- *
- * user has to guess secret number
- * program tells user if num is too large or too small
- * keeps track of # of tries
- * keep track of previous try
- *
- */
+
     Random randomNum = new Random();
     public int secret = randomNum.nextInt(100);
     public int tries = 0;
     public int guess = 0;
+    public int lastGuess=-1;
 
 
 
     public void makeGuess(int theGuess){
         this.guess = theGuess;
+
         countTries();
     }
 
@@ -34,9 +27,8 @@ public class Game {
         boolean equal = this.secret == this.guess;
         if(equal){
             System.out.println("That is the right answer!");
-//            return tries
+            System.out.println("the number of tries are "+ tries);
         }else{
-//          conditional
             if(tries !=0) {
                 bigOrSmall();
             }
@@ -59,6 +51,14 @@ public class Game {
         return tries++;
     }
 
+    public boolean checkPrevInput(){
+        boolean consecutive = lastGuess == guess;
+        if(consecutive){
+            System.out.println("That is the same guess!");
+        }
+        return consecutive;
+    }
+
     public void run(){
         System.out.println("guess a number");
         Scanner guess = new Scanner(System.in);
@@ -66,10 +66,12 @@ public class Game {
         while(!equals()){
 
             guessNum = guess.nextInt();
+            if(checkPrevInput()){
+                continue;
+            }
             makeGuess(guessNum);
-//            equals();
 
-
+            lastGuess = guessNum;
         }
     }
 
