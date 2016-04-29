@@ -10,16 +10,29 @@ import java.util.StringTokenizer;
 public class Game {
 
     Random randomNum = new Random();
-    public int secret = randomNum.nextInt(100);
-    public int tries = 0;
-    public int guess = 0;
+    private int secret = randomNum.nextInt(100);
+    private int tries = 0;
+    private int guess = 0;
     public int lastGuess=-1;
+// I still have to generate and test getter and setter for lastGuess
+    public int getGuess() {
+        return guess;
+    }
 
+    public int getSecret() {
+        return secret;
+    }
 
+    public void setSecret(int secret) {
+        this.secret = secret;
+    }
+
+    public void setGuess(int guess) {
+        this.guess = guess;
+    }
 
     public void makeGuess(int theGuess){
-        this.guess = theGuess;
-
+        this.setGuess(theGuess);
         countTries();
     }
 
@@ -48,7 +61,18 @@ public class Game {
         return tooBig;
     }
     public int countTries(){
-        return tries++;
+        int incTries = getTries();
+        incTries++;
+        setTries(incTries);
+        return incTries;
+    }
+
+    public int getTries() {
+        return tries;
+    }
+
+    public void setTries(int tries) {
+        this.tries = tries;
     }
 
     public boolean checkPrevInput(){

@@ -2,12 +2,12 @@
 ======================
 |	GAME	         |
 ----------------------
-|+ int secret	     |
-|+ int tries	     |
-|+ int lastGuess	 |
+|- int secret	     |
+|- int tries	     |
+|- int lastGuess	 |
 ----------------------
 |+ makeGues(int guess)|
-|+ equals()	         |
+|+ equals(): boolean |
 |+ bigOrSmall()	     |
 |+ countTries()	     |
 |+ run() 	         |
